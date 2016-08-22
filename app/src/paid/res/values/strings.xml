@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Build it Bigger - Paid</string>
+    <string name="activity_name">.paid.MainActivity</string>
 </resources>

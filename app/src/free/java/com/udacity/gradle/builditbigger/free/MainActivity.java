@@ -1,4 +1,4 @@
-package com.udacity.gradle.builditbigger;
+package com.udacity.gradle.builditbigger.free;
 
 import android.content.Context;
 import android.content.Intent;
@@ -12,9 +12,12 @@ import android.widget.Toast;
 
 import com.example.JavaJokes;
 import com.example.dean.jokesdisplaylib.JokeDisplay;
+import com.udacity.gradle.builditbigger.AsyncJokeReceiver;
+import com.udacity.gradle.builditbigger.R;
+import com.udacity.gradle.builditbigger.onJokeListener;
 
 
-public class MainActivity extends ActionBarActivity implements onJokeListener{
+public class MainActivity extends ActionBarActivity implements onJokeListener {
 
 
     @Override
