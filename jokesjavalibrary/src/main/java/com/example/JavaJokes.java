@@ -6,7 +6,7 @@ public class JavaJokes {
     }
 
     public String getJoke(){
-        return "SO FUNNNNNNY!";
+        return "A conference call is the best way for a dozen people to say “bye” 300 times.";
     }
 
 }
