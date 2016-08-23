@@ -1,4 +1,4 @@
-package com.udacity.gradle.builditbigger.paid;
+package com.udacity.gradle.builditbigger;
 
 import android.content.Context;
 import android.content.Intent;
@@ -19,12 +19,10 @@ import com.udacity.gradle.builditbigger.onJokeListener;
 
 public class MainActivity extends ActionBarActivity implements onJokeListener {
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        setTitle("PAID");
     }
 
     @Override
