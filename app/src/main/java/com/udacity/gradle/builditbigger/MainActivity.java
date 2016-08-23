@@ -8,6 +8,7 @@ import android.util.Pair;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.example.JavaJokes;
@@ -19,10 +20,13 @@ import com.udacity.gradle.builditbigger.onJokeListener;
 
 public class MainActivity extends ActionBarActivity implements onJokeListener {
 
+    ProgressBar mProgressBar;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        mProgressBar = (ProgressBar) findViewById(R.id.progressBar);
     }
 
     @Override
@@ -30,6 +34,12 @@ public class MainActivity extends ActionBarActivity implements onJokeListener {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        mProgressBar.setVisibility(View.GONE);
     }
 
     @Override
@@ -54,7 +64,7 @@ public class MainActivity extends ActionBarActivity implements onJokeListener {
 //        startActivity(intent);
 //        new EndpointsAsyncTask().execute((this));
 //        Toast.makeText(this, jokes.getJoke(), Toast.LENGTH_SHORT).show();
-
+        mProgressBar.setVisibility(View.VISIBLE);
         new AsyncJokeReceiver(this).receiveJoke();
     }
 

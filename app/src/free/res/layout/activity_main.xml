@@ -5,7 +5,7 @@
     android:layout_height="match_parent">
 
     <fragment  android:id="@+id/fragment"
-        android:name="com.udacity.gradle.builditbigger.paid.MainActivityFragment"
+        android:name="com.udacity.gradle.builditbigger.free.MainActivityFragment"
         tools:layout="@layout/fragment_main"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
@@ -16,6 +16,6 @@
         android:layout_height="wrap_content"
         android:id="@+id/progressBar"
         android:layout_centerInParent="true"
-        style="?android:attr/progressBarStyleLarge"
-        android:visibility="gone"/>
+        style="?android:attr/progressBarStyleLarge"/>
 </RelativeLayout>
+

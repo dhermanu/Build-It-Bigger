@@ -8,6 +8,7 @@ import android.util.Pair;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.example.JavaJokes;
@@ -23,12 +24,14 @@ import com.udacity.gradle.builditbigger.onJokeListener;
 public class MainActivity extends ActionBarActivity implements onJokeListener {
 
     InterstitialAd mInterstitialAd;
-    private boolean jokeStatus = false;
+    ProgressBar mProgressBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        mProgressBar = (ProgressBar) findViewById(R.id.progressBar);
 
         mInterstitialAd = new InterstitialAd(this);
         mInterstitialAd.setAdUnitId("ca-app-pub-3940256099942544/1033173712");
@@ -50,6 +53,12 @@ public class MainActivity extends ActionBarActivity implements onJokeListener {
                 .build();
 
         mInterstitialAd.loadAd(adRequest);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        mProgressBar.setVisibility(View.GONE);
     }
 
     @Override
@@ -81,13 +90,14 @@ public class MainActivity extends ActionBarActivity implements onJokeListener {
 //        startActivity(intent);
 //        new EndpointsAsyncTask().execute((this));
 //        Toast.makeText(this, jokes.getJoke(), Toast.LENGTH_SHORT).show();
-
+        mProgressBar.setVisibility(View.VISIBLE);
         new AsyncJokeReceiver(this).receiveJoke();
     }
 
 
     @Override
     public void onJokeReceiver(String jokes) {
+
         if(mInterstitialAd.isLoaded()){
             mInterstitialAd.show();
         }
